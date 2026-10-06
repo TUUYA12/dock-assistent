@@ -112,11 +112,15 @@ def ask_llm_assistant(question):
                 {"role": "system", "content": system_instruction},
                 {"role": "user", "content": question}
             ],
-            temperature=0.0  # Полное отключение случайности (фантазии) модели
+            temperature=0.0  # Полное отключение фантазии ИИ
         )
-        return response.choices.message.content
+        # ИСПРАВЛЕНИЕ: Безопасно возвращаем текст, даже если сервер вернул простую строку
+        if isinstance(response, str):
+            return response
+        return response.choices[0].message.content
     except Exception as e:
         return f"Ошибка API: {str(e)}"
+
 
 # =====================================================================
 # ТОЧКА ВХОДА
