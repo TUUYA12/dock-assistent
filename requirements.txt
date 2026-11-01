@@ -1,3 +1,9 @@
-numpy
-pandas
-jupyter
+fastapi
+uvicorn
+pydantic
+torch
+transformers
+peft
+faiss-cpu
+langchain-gigachat
+python-dotenv
