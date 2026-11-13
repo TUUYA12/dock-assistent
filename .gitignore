@@ -6,3 +6,7 @@ __pycache__/
 *.log
 .pytest_cache/
 .vscode/
+
+mlflow.db
+mlruns/
+*.png
